@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   }
 
 
-  showDetails() {
+  showDetails(): void {
     this.details = !this.details;
   }
 }
