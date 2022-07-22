@@ -4,6 +4,6 @@
 
   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
 
-  <app-product *ngFor="let p of products" [product]="p"></app-product>
+  <app-product *ngFor="let p of products$ | async" [product]="p"></app-product>
 
 </div>
