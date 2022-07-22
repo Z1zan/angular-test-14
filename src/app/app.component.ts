@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'angular app';
   loading = false;
   products$: Observable<IProduct[]>
+  term = '';
 
   constructor(
     private productsService: ProductsService,
