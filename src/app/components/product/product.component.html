@@ -2,7 +2,7 @@
 
   <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2">
   <h2 class="mb-2 text-md text-center">{{ product.title | titlecase }}</h2>
-  <p>Price: <span class="font-bold">{{ product.price | currency:'RUB' }}</span></p>
+  <p>Price: <span class="font-bold">{{ product.price | currency }}</span></p>
 
   <button
       (click)="showDetails()"
@@ -16,7 +16,7 @@
 
   <div *ngIf="details">
     <p>{{ product.description }}</p>
-    <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">
+    <p *ngIf="product.rating">Rate: <span [ngStyle]="{fontWeight: 'bold'}">
       {{ product.rating.rate | number: '1.2' }}
     </span></p>
   </div>
