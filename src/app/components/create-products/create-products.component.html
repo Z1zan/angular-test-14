@@ -5,7 +5,17 @@
     Please fill title field with min length. Need more {{ title.errors?.minlength['requiredLength'] - title.value.length }}
   </p>
 
-  <button class="py-2 px-4 bg-blue-600 text-white" type="submit">
+  <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Product description" formControlName="description">
+  <p *ngIf="title.errors?.minlength && title.touched" class="text-red-600 font-medium mb-2">
+    Please fill title field with min length. Need more {{ title.errors?.minlength['requiredLength'] - title.value.length }}
+  </p>
+
+  <input type="number" class="border w-full py-2 px-4 mb-2" placeholder="Product price" formControlName="price">
+  <p *ngIf="price.errors?.minlength && title.touched" class="text-red-600 font-medium mb-2">
+    Please fill title field with min length. Need more {{ title.errors?.minlength['requiredLength'] - title.value.length }}
+  </p>
+
+  <button class="py-2 px-4 bg-blue-600 text-white w-full" type="submit">
     Create
   </button>
 

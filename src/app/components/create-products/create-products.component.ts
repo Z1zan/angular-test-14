@@ -14,11 +14,23 @@ export class CreateProductsComponent implements OnInit {
     title: new FormControl<string>('', [
       Validators.required,
       Validators.minLength(5)
-    ])
+    ]),
+    description: new FormControl<string>(''),
+    price: new FormControl<number>(0, [
+      Validators.required,
+    ]),
   })
 
   get title(): FormControl {
     return this.form.controls.title as FormControl;
+  }
+
+  get description(): FormControl {
+    return this.form.controls.description as FormControl;
+  }
+
+  get price(): FormControl {
+    return this.form.controls.price as FormControl;
   }
 
   constructor(
@@ -30,7 +42,15 @@ export class CreateProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public priceValidator(control: FormControl): boolean | null {
+    return control.value >= 0 ? true : null;
+  }
+
   submit(): void {
+    if (this.form.status === 'INVALID') {
+      return;
+    }
+
     this.productService.create({
       title: this.form.value.title as string,
       price: 13.5,

@@ -2,11 +2,11 @@
 
   <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2">
   <h2 class="mb-2 text-md text-center">{{ product.title | titlecase }}</h2>
-  <p>Price: <span class="font-bold">{{ product.price | currency }}</span></p>
+  <p>Price:
+    <span class="font-bold">{{ product.price | currency:'':'&#8381;' }}</span>
+  </p>
 
-  <button
-      (click)="showDetails()"
-      class="border py-2 px-4 rounded bg-yellow-400 text-white"
+  <button class="border py-2 px-4 rounded bg-yellow-400 text-white" (click)="showDetails()"
       [ngClass]="{
         'bg-yellow-400': !details,
         'bg-blue-400': details

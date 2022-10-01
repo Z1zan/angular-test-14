@@ -9,7 +9,6 @@ import { IProduct } from '../../models/product';
 export class ProductComponent implements OnInit {
 
   @Input() product: IProduct;
-
   details = false;
 
   constructor() { }
